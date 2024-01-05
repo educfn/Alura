@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "C#CriandoSuaPrimeiraAplicacao", "C#CriandoSuaPrimeiraAplicacao", "{FC145781-F8E8-450E-991C-E81A91F6AF8B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScreenSound", "C#CriandoSuaPrimeiraAplicacao\ScreenSound\ScreenSound.csproj", "{4DE6C866-F664-4F02-A1A6-B687C4091F56}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Desafios", "Desafios", "{6A7F6CA9-1581-4422-B596-C1AC195611BA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "1-CriandoOPrimeiroPrograma", "C#CriandoSuaPrimeiraAplicacao\Desafios\1-CriandoOPrimeiroPrograma\1-CriandoOPrimeiroPrograma.csproj", "{66DCA65C-A5D3-48C5-A71E-2BD72182051D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4DE6C866-F664-4F02-A1A6-B687C4091F56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DE6C866-F664-4F02-A1A6-B687C4091F56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DE6C866-F664-4F02-A1A6-B687C4091F56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DE6C866-F664-4F02-A1A6-B687C4091F56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66DCA65C-A5D3-48C5-A71E-2BD72182051D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66DCA65C-A5D3-48C5-A71E-2BD72182051D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66DCA65C-A5D3-48C5-A71E-2BD72182051D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66DCA65C-A5D3-48C5-A71E-2BD72182051D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4DE6C866-F664-4F02-A1A6-B687C4091F56} = {FC145781-F8E8-450E-991C-E81A91F6AF8B}
+		{6A7F6CA9-1581-4422-B596-C1AC195611BA} = {FC145781-F8E8-450E-991C-E81A91F6AF8B}
+		{66DCA65C-A5D3-48C5-A71E-2BD72182051D} = {6A7F6CA9-1581-4422-B596-C1AC195611BA}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0B22830A-390C-4916-A12A-B28F2F7964DD}
+	EndGlobalSection
+EndGlobal
