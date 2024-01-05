@@ -18,4 +18,4 @@ Console.WriteLine(nome+sobrenome);
 string nomeDoPrimeiroInstrutor = "Daniel Portugal";
 string nomeDoSegundoInstrutor = "Guilherme Lima";
 
-Console.WriteLine($"Este cursos é ministrado por:\n-{nomeDoPrimeiroInstrutor}\n-{nomeDoSegundoInstrutor}");
+Console.WriteLine($"Este curso é ministrado por:\n-{nomeDoPrimeiroInstrutor}\n-{nomeDoSegundoInstrutor}");
