@@ -1,0 +1,8 @@
+Desafio 5:
+Criar a opção 4 do ScreenSound.
+- Exibir a média de uma banda.
+-- Criar uma função para fazer a média de uma banda.
+-- Limpar o terminal
+-- Exibir o título "Exibir a média de uma banda".
+-- Perguntar ao usuário qual a banda que o usuário quer ver a média.
+-- Verificar se a banda está presente do dicionário.
