@@ -51,4 +51,13 @@ void CalculadoraQuatroBasicas(float a, float b)
     Console.WriteLine($"\nSoma: {soma}\nSubtração: {subtracao}\nDivisão: {divisao}\nMultiplicacao: {multiplicacao}");
 }
 
+// Atividade-2
+// Criar uma lista de bandas vazia e adicionar suas bandas prediletas em seguida.
+Console.WriteLine($"\nAtividade 2");
+List<string> listaDeBandas = new List<string>();
 
+string nomeDeBandas = "U2,Kiss,TheBeatles,ACDC,Queen";
+
+foreach(string banda in nomeDeBandas.Split(',')) listaDeBandas.Add(banda);
+
+foreach(string nomeDaBanda in listaDeBandas) Console.WriteLine(nomeDaBanda);
