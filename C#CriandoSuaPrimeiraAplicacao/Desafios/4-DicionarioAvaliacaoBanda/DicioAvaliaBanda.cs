@@ -46,11 +46,20 @@ Console.WriteLine("\nAtividade 3");
 Dictionary<string, string> perguntas = new();
 perguntas.Add("Quantas rodas tem um carro?", "Quatro");
 perguntas.Add("Quantos pés tem um elefante?", "Quatro");
-perguntas.Add("", "");
-perguntas.Add("", "");
-perguntas.Add("", "");
-
-foreach(var produto in perguntas)
+perguntas.Add("O nome daquele tem folhas de papel, palavras e capa?", "Livro");
+perguntas.Add("Se a vida te da x faça uma limonada, o que é x?", "Limões");
+perguntas.Add("Nome do conjunto de lobos", "Alcateia");
+bool jogarQuiz = true;
+while(jogarQuiz)
 {
-    Console.WriteLine($"Quantidade de {produto.Key}: {perguntas[produto.Key]}");
+    foreach(var pergunta in perguntas)
+    {
+        Console.WriteLine($"{pergunta.Key}:");
+        string? resposta = Console.ReadLine();
+        if(resposta.HasValue)
+        {
+
+        }
+        Console.WriteLine("Resposta Errada");
+    }
 }
