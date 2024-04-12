@@ -46,20 +46,33 @@ Console.WriteLine("\nAtividade 3");
 Dictionary<string, string> perguntas = new();
 perguntas.Add("Quantas rodas tem um carro?", "Quatro");
 perguntas.Add("Quantos pés tem um elefante?", "Quatro");
-perguntas.Add("O nome daquele tem folhas de papel, palavras e capa?", "Livro");
+perguntas.Add("O nome de um item que tem folhas de papel, palavras e capa?", "Livro");
 perguntas.Add("Se a vida te da x faça uma limonada, o que é x?", "Limões");
 perguntas.Add("Nome do conjunto de lobos", "Alcateia");
 bool jogarQuiz = true;
 while(jogarQuiz)
 {
+    string respostas = "\nRespostas possiveis:\n";
     foreach(var pergunta in perguntas)
     {
-        Console.WriteLine($"{pergunta.Key}:");
-        string? resposta = Console.ReadLine();
-        if(resposta.HasValue)
-        {
-
-        }
-        Console.WriteLine("Resposta Errada");
+        respostas += $"{pergunta.Value}\n";
     }
+
+    foreach(var pergunta in perguntas)
+    {
+        Console.WriteLine($"{pergunta.Key}:\n{respostas}");
+        string? respostaEscolhida = Console.ReadLine();
+        if(respostaEscolhida != null && respostaEscolhida == pergunta.Value)
+        {
+            Console.WriteLine("\nResposta Correta\n");
+        }
+        else
+        {
+            Console.WriteLine("\nResposta Errada\n");
+        }
+        Console.ReadKey();
+    }
+    Console.WriteLine("Continuar a jogar?(n/s)");
+    string? respostaJogo = Console.ReadLine();
+    if(respostaJogo != null && (respostaJogo[0] == 'n' || respostaJogo[0] == 'N')) jogarQuiz = false;
 }
