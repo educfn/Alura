@@ -92,7 +92,7 @@ Random rand = new Random();
     bool usandoPrograma = true, tudoCorreto = false;
     do
     {
-        Console.WriteLine("\n Escolha:\n1-Login\n2-Cadastrar");
+        Console.WriteLine("\n Escolha:\n1-Login\n2-Cadastrar\n3-Sair");
         string? resposta = Console.ReadLine();
         if(resposta != null && int.TryParse(resposta, out int escolha))
         {
@@ -100,6 +100,27 @@ Random rand = new Random();
             {
                 case 1:
                 {
+                    tudoCorreto = false;
+                    string? nomeLogin = null, senhaLogin = null;
+                    do
+                    {
+                        if(nomeLogin == null)
+                        {
+                            Console.WriteLine("Bem vindo ao cadastro!\nDigite o nome da conta sem espaço:");
+                            ColetarNomeDoUsuario(ref contas, out nomeLogin, false);
+                        }
+                        else
+                        {
+                            Console.WriteLine("\nDigite a senha:");
+                            ColetarSenhaDoUsuario(ref contas, out senhaLogin);
+                            tudoCorreto = true;
+                        }
+                    }
+                    while(!tudoCorreto);
+                    if(Autenticar(ref contas, nomeLogin, senhaLogin!))
+                        Console.WriteLine($"A conta {nomeLogin} foi autenticada com sucesso!");
+                    else
+                        Console.WriteLine($"A conta {nomeLogin} falhou na autenticação, verificar se o login ou senha estão corretos.");
                     break;
                 }
                 case 2:
@@ -110,54 +131,93 @@ Random rand = new Random();
                     {
                         if(nomeLogin == null)
                         {
-
-                        
                             Console.WriteLine("Bem vindo ao cadastro!\nDigite o nome da conta sem espaço:");
-                            do
-                            {
-                                string? nome = Console.ReadLine();
-                                if (string.IsNullOrWhiteSpace(nome))
-                                    Console.WriteLine("Preenchar algo no nome para o login.");
-                                else if (nome.Contains(' '))
-                                    Console.WriteLine("O nome no login não pode ter espaço.");
-                                else if (contas.ContainsKey(nome))
-                                    Console.WriteLine("Nome do login já existe.");
-                                else
-                                {
-                                    nomeLogin = nome;
-                                    tudoCorreto = true;
-                                }
-                            }
-                            while(tudoCorreto != true);
+                            ColetarNomeDoUsuario(ref contas, out nomeLogin);
                         }
                         else
                         {
-                            tudoCorreto = false;
                             Console.WriteLine("\nDigite a senha:");
-                            do
-                            {
-                                string? senha = Console.ReadLine();
-                                if (string.IsNullOrWhiteSpace(senha))
-                                    Console.WriteLine("Preenchar algo no senha do login.");
-                                else if (senha.Contains(' '))
-                                    Console.WriteLine("O senha do login não pode ter espaço.");
-                                else if (contas.ContainsKey(senha))
-                                    Console.WriteLine("senha do login já existe.");
-                                else
-                                {
-                                    senhaLogin = senha;
-                                    tudoCorreto = true;
-                                }
-                            }
-                            while(tudoCorreto != true);
+                            ColetarSenhaDoUsuario(ref contas, out senhaLogin);
+                            tudoCorreto = true;
                         }
-
                     }
                     while(!tudoCorreto);
+                    Armazenar(ref contas, nomeLogin, senhaLogin!);
+                    break;
+                }
+                case 3:
+                {
+                    usandoPrograma = false;
                     break;
                 }
             }
         }
     }
     while(usandoPrograma);
+}
+
+void ColetarNomeDoUsuario(ref Dictionary<string,string> dicionarioDeContas, out string nomeUsuario, bool verificarContaExistente = true)
+{
+    bool nomeDoUsuarioObtido = false;
+    nomeUsuario = string.Empty;
+    do
+    {
+        string? nome = Console.ReadLine();
+        if (string.IsNullOrWhiteSpace(nome))
+            Console.WriteLine("Preenchar algo no nome para o login.");
+        else if (nome.Contains(' '))
+            Console.WriteLine("O nome no login não pode ter espaço.");
+        else if (verificarContaExistente && dicionarioDeContas.ContainsKey(nome))
+            Console.WriteLine("Nome do login já existe.");
+        else
+        {
+            nomeUsuario = nome;
+            nomeDoUsuarioObtido = true;
+        }
+    }
+    while(nomeDoUsuarioObtido != true);
+}
+
+void ColetarSenhaDoUsuario(ref Dictionary<string,string> dicionarioDeContas, out string senha)
+{
+    bool senhaObtida = false;
+    senha = string.Empty;
+    do
+    {
+        string? respostaSenha = Console.ReadLine();
+        if (string.IsNullOrWhiteSpace(respostaSenha))
+            Console.WriteLine("Preenchar algo no senha do login.");
+        else if (respostaSenha.Contains(' '))
+            Console.WriteLine("O senha do login não pode ter espaço.");
+        else if (dicionarioDeContas.ContainsKey(respostaSenha))
+            Console.WriteLine("senha do login já existe.");
+        else
+        {
+            senha = respostaSenha;
+            senhaObtida = true;
+        }
+    }
+    while(senhaObtida != true);
+}
+
+bool Armazenar(ref Dictionary<string,string> dicionarioDeContas, string login, string senha)
+{
+    if (dicionarioDeContas == null || string.IsNullOrWhiteSpace(login) || string.IsNullOrWhiteSpace(senha)) return false;
+    
+    dicionarioDeContas!.Add(login, senha);
+
+    if (dicionarioDeContas.ContainsKey(login))
+        Console.WriteLine($"Adicionado usuário {login}");
+    else
+        Console.WriteLine($"Falha ao adicionar o usuário {login}");
+
+    return true;
+}
+bool Autenticar(ref Dictionary<string,string> contas, string login, string senha)
+{
+    if (contas == null || string.IsNullOrWhiteSpace(login) || string.IsNullOrWhiteSpace(senha)) return false;
+
+    if (contas.ContainsKey(login) && contas[login] == senha) return true;
+
+    return false;
 }
