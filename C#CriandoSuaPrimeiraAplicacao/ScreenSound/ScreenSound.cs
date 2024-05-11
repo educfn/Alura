@@ -45,7 +45,7 @@ void ExibirOpcoesDoMenu()
             AvaliarUmaBanda();
             break;
         case 4:
-            Console.WriteLine("Você digitou a opção " + opcaoEscolhidaNumerica);
+            ExibirMediaBanda();
             break;
         case -1:
             Console.WriteLine("Você digitou a opção " + opcaoEscolhidaNumerica);
@@ -116,6 +116,50 @@ void AvaliarUmaBanda()
         bandasRegistradas[nomeDaBanda].Add(nota);
         Console.WriteLine($"\nA nota {nota} foi registrada com sucesso para a banda {nomeDaBanda}");
         Thread.Sleep(4000);
+        Console.Clear();
+        ExibirOpcoesDoMenu();
+    }
+    else
+    {
+        Console.WriteLine($"\nA banda {nomeDaBanda} não foi encontrada!");
+        Console.WriteLine("Digite uma tecla para voltar ao menu principal");
+        Console.ReadKey();
+        Console.Clear();
+        ExibirOpcoesDoMenu();
+    }
+}
+
+void ExibirMediaBanda()
+{
+    /*
+    Desafio 5:
+Criar a opção 4 do ScreenSound.
+- Exibir a média de uma banda.
+-- Criar uma função para fazer a média de uma banda.
+-- Limpar o terminal
+-- Exibir o título "Exibir a média de uma banda".
+-- Perguntar ao usuário qual a banda que o usuário quer ver a média.
+-- Verificar se a banda está presente do dicionário.*/
+    
+    Console.Clear();
+    ExibirTituloDaOpcao("Exibir a média de uma banda");
+    Console.Write("Digite o nome da banda que deseja ver a média: ");
+    string nomeDaBanda = Console.ReadLine()!;
+    if (bandasRegistradas.ContainsKey(nomeDaBanda))
+    {
+        if(bandasRegistradas[nomeDaBanda].Count() > 0)
+        {
+            int somaDasNotas = 0;
+            foreach (int nota in bandasRegistradas[nomeDaBanda]) somaDasNotas += nota;
+            float mediaDaBanda = (float)somaDasNotas / bandasRegistradas[nomeDaBanda].Count();
+            Console.WriteLine($"A media da banda {nomeDaBanda} é: {mediaDaBanda}");
+        }
+        else
+        {
+            Console.WriteLine($"{nomeDaBanda} não tem nenhum nota");
+        }
+
+        Console.ReadKey();
         Console.Clear();
         ExibirOpcoesDoMenu();
     }
