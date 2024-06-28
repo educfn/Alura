@@ -19,5 +19,11 @@ class Musica
             Console.WriteLine("Adquira o plano Plus+");           
         }
     }
+
+    public void ExibirMusicaEAuthor()
+    {
+        Console.WriteLine($"Nome: {nome}");
+        Console.WriteLine($"Artista: {artista}");
+    }
 }
 
