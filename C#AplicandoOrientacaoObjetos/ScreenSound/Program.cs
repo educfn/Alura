@@ -1,4 +1,7 @@
-﻿using CsharpAplicandoOrientacaoObjetos.ScreenSound;
+using CsharpAplicandoOrientacaoObjetos.ScreenSound;
+
+Album albumDoQueen = new Album();
+albumDoQueen.Nome = "A night at the opera";
 
 Musica musica1 = new Musica();
 musica1.Nome = "Roxane";
