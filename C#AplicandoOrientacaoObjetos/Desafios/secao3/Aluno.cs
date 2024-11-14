@@ -5,13 +5,13 @@ public class Aluno
 {
     private string nome;
     private int idade;
-    private Dictionary<string,float> notas;
+    private Dictionary<string,float> notasDasDisciplinas;
 
     public Aluno(string nomeDoAluno, int idadeDoAluno)
     {
         nome = nomeDoAluno;
         idade = idadeDoAluno;
-        notas = new();
+        notasDasDisciplinas = new();
     }
 
     public string Nome => nome;
@@ -20,18 +20,23 @@ public class Aluno
 
     public void AdicionarNota(string nomeDaNota, float nota)
     {
-        notas.TryAdd(nomeDaNota,nota);
+        notasDasDisciplinas.TryAdd(nomeDaNota,nota);
     }
 
     public void DadosDoAluno()
     {
-        Console.WriteLine($"\nNome: {nome} - Idade: {idade}");
+        Console.Write($"\nNome: {nome} - Idade: {idade}");
     }
 
     public void ExibirNotas()
     {
-        Console.Write($"\nAluno: {nome} - notas: ");
-        foreach(float nota in notas.Values)
-            Console.Write($"{nota}, ");
+        if (notasDasDisciplinas.Count == 0 )
+            Console.Write($"\nAluno não está matriculado em nenhuma disciplina.");
+        else
+        {
+            Console.Write($"\nAluno: {nome} - notas: ");
+            foreach(string nomeDaDisciplina in notasDasDisciplinas.Keys)
+                Console.Write($"{nomeDaDisciplina} - nota {notasDasDisciplinas[nomeDaDisciplina]}, ");
+        }
     }
 }

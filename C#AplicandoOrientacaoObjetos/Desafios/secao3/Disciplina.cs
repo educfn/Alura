@@ -22,8 +22,9 @@ public class Disciplina
 
     public void ExibirAlunos()
     {
-        Console.WriteLine($"Disciplina: {nome} - ");
+        Console.Write($"Disciplina: {nome} - ");
         foreach(Aluno aluno in alunos)
             Console.Write($"{aluno.Nome}, ");
+        Console.Write("\n");
     }
 }

@@ -33,32 +33,46 @@ List<Disciplina> disciplinas = new();
 List<Aluno> alunos = new();
 Random rnd = new();
 
-for(int i=0, j=0, l=0; i < 10; i++)
+for(int numeroDeAlunos=0, numeroDeDisciplinas=0, numeroDeProfessores=0; numeroDeAlunos < 10; numeroDeAlunos++)
 {
-    alunos.Add(new($"Aluno {i+1}", rnd.Next(1,100)));
+    // Criar alunos
+    alunos.Add(new($"Aluno {numeroDeAlunos + 1}", rnd.Next(1,100)));
 
-    if(i < 3)
-        disciplinas.Add(new Disciplina($"Disciplina {++j}"));
-
-    if(i > 6)
+    // Criar as disciplinas
+    if(numeroDeDisciplinas <= 3)
+        disciplinas.Add(new Disciplina($"Disciplina {++numeroDeDisciplinas}"));
+    // Criar os professores e adiciona-los a alguma das disciplinas.
+    else if(numeroDeProfessores <= 4)
     {
-        var novoProfessor = new Professor($"Professor {++l}");
-            for(int z = 0; z < rnd.Next(1,3);z++)
+        var novoProfessor = new Professor($"Professor {++numeroDeProfessores}");
+            for(int disciplinasAdicionadaAoProfessor = 0; disciplinasAdicionadaAoProfessor < rnd.Next(1,3);disciplinasAdicionadaAoProfessor++)
                 novoProfessor.AdicionarDisciplina(disciplinas[rnd.Next(1,3)]);
         professores.Add(novoProfessor);
     }
 }
 
-//TODO Adicionar de forma aleatoria alunos nas Disciplinas.
-
-foreach(Aluno aluno in alunos)
+//Adicionar de forma aleatoria alunos nas Disciplinas.
+foreach(Disciplina disciplina in disciplinas)
 {
-    foreach(Professor professor in professores)
+    foreach(Aluno aluno in alunos)
     {
-        foreach(Disciplina disciplina in disciplinas)
+        var AlunoSeraAtribuidoAEssaDisciplina = ((rnd.Next(0,100)) >= 50);
+        if (AlunoSeraAtribuidoAEssaDisciplina)
+            disciplina.AdicionarAlunos(aluno);
+    }
+}
+
+// Atribuir nota aos alunos
+foreach (Disciplina disciplina in disciplinas)
+{
+    foreach (Professor professor in professores)
+    {
+        if (professor.Disciplinas.Exists(c => c.Nome == disciplina.Nome))
         {
-            if(professor.Disciplinas.Exists(c => c.Nome == disciplina.Nome))
-                professor.AtribuirNota(aluno, disciplina, (float)rnd.Next(0,10)); //TODO verificar se o aluno esta na disciplina.
+            foreach (Aluno aluno in alunos)
+            {
+                professor.AtribuirNota(aluno, disciplina, (float)rnd.Next(0, 10));
+            }
         }
     }
 }

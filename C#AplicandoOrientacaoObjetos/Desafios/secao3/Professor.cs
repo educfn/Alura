@@ -33,6 +33,7 @@ public class Professor
 
     public void AtribuirNota(Aluno aluno, Disciplina disciplina, float nota)
     {
-        aluno.AdicionarNota(disciplina.Nome, nota);
+        if (disciplina.alunos.Exists(c => c.Nome == aluno.Nome && c.Idade == aluno.Idade))
+            aluno.AdicionarNota(disciplina.Nome, nota);
     }
 }
