@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace CSharpAplicandoOrientacaoObjetos.Desafios.secao3
 {
     public class EstoqueProdutos

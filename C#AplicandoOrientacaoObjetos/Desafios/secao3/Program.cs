@@ -6,7 +6,6 @@
 5-Modelar um sistema para um restaurante com classes como Restaurante, Mesa, Pedido e Cardapio. A classe Restaurante deve ter mesas que podem ser reservadas e um cardápio com itens que podem ser pedidos. Os pedidos podem estar associados a uma mesa.
 */
 using CSharpAplicandoOrientacaoObjetos.Desafios.secao3;
-using System;
 
 Console.WriteLine("Secao 3 Desafio!");
 
@@ -100,5 +99,7 @@ Console.WriteLine("\n\nSecao 3 Desafio 5");
 
 //5 - Modelar um sistema para um restaurante com classes como Restaurante, Mesa, Pedido e Cardapio. A classe Restaurante deve ter mesas que podem ser reservadas e um cardápio com itens que podem ser pedidos. Os pedidos podem estar associados a uma mesa.
 
+//1º Etapa - Instanciar todas as classes(Restaurante, Pedido, Mesa, Cardapio).
 
+//2º Etapa - 
 

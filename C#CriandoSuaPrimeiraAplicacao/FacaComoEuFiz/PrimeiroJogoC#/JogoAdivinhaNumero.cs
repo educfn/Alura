@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-Console.WriteLine("Tente advinhar o número que estou pensando: ");
+﻿Console.WriteLine("Tente advinhar o número que estou pensando: ");
 int numeroAleatorio = GerarNumeroAleatorio();
 int numeroAdvinhado = -1;
 string mensagem = string.Empty;
