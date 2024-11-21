@@ -11,20 +11,22 @@
             mesasDisponiveis = new ();
             mesasReservadas = new ();
 
-            for (int i =0; i < 20; i++)
+            for (int i = 0; i < 20; i++)
             {
-                mesasDisponiveis =
+                mesasDisponiveis = new(i);
             }
         }
 
-        public AdicionarMesaDisponiveis(Mesa mesa)
+        public void AdicionarMesaReservada(Mesa mesa)
         {
 
         }
 
-        public RemoverMesaReservada(Mesa mesa)
+        public void RemoverMesaReservada(Mesa mesa)
         {
 
         }
     }
 }
+
+

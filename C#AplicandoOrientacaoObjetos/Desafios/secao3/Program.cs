@@ -99,7 +99,11 @@ Console.WriteLine("\n\nSecao 3 Desafio 5");
 
 //5 - Modelar um sistema para um restaurante com classes como Restaurante, Mesa, Pedido e Cardapio. A classe Restaurante deve ter mesas que podem ser reservadas e um cardápio com itens que podem ser pedidos. Os pedidos podem estar associados a uma mesa.
 
-//1º Etapa - Instanciar todas as classes(Restaurante, Pedido, Mesa, Cardapio).
-
-//2º Etapa - 
+/*
+ * O programa do Restaurante consiste em um programa de: reserva de mesas, contabilização dos pedidos em associação a mesa.
+ * 
+ *  1 - Instanciar a classe 'Restaurante'.
+ *  2 - Criar as mesas
+ *  3 - 
+ */
 
