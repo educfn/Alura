@@ -11,20 +11,31 @@
             mesasDisponiveis = new ();
             mesasReservadas = new ();
 
-            for (int i = 0; i < 20; i++)
+            for (int i = 1; i < 21; i++)
             {
-                mesasDisponiveis = new(i);
+                mesasDisponiveis.Add(new(i));
             }
         }
 
         public void AdicionarMesaReservada(Mesa mesa)
         {
-
+            if (mesasDisponiveis.Exists
+                (mesaEncontrada => mesaEncontrada.NumeroDaMesa == mesa.NumeroDaMesa))
+            {
+                mesasReservadas.Add(mesa);
+                mesasDisponiveis.Remove(mesa);
+            }
+                
         }
 
         public void RemoverMesaReservada(Mesa mesa)
         {
-
+            if (mesasReservadas.Exists
+                (mesaEncontrada => mesaEncontrada.NumeroDaMesa == mesa.NumeroDaMesa))
+            {
+                mesasDisponiveis.Add(mesa);
+                mesasReservadas.Remove(mesa);
+            }
         }
     }
 }
